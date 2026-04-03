@@ -1,6 +1,6 @@
 import { RouterProvider } from "react-router";
 import { router } from "./app.routes.jsx";
-
+import { AuthProvider } from  "./features/auth/auth.context.jsx"
 
 
 
@@ -8,7 +8,12 @@ import { router } from "./app.routes.jsx";
 function App() {  
 
   return (
-    < RouterProvider router={router} />
+    // poori app ko authProvider mai wrap kar diya isse 
+    // value = {{user,setUser,loading,setLoading}} iska access poori applicarion ko mil jayega
+      <AuthProvider>
+        < RouterProvider router={router} />
+      </AuthProvider>
+
 
   )
 }
